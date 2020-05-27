@@ -4,24 +4,41 @@ STOP_WORDS = [
     'were', 'will', 'with'
 ]
 
+import string 
+punctuation = string.punctuation 
+import random
+random.random 
 
 class FileReader:
-    def __init__(self, filename):
-        pass
+    def __init__(self):
+       self.words = []
+       self.read_contents()
 
-    def read_contents(self):
+    def read_contents(self, lines):
+        file = open("seneca_falls.txt")
+        lines = file.read()
+        file.close
+        print(self.read_contents)
+        return self.read_contents
         """
         This should read all the contents of the file
         and return them as one string.
         """
         raise NotImplementedError("FileReader.read_contents")
-
-
+        
 class WordList:
-    def __init__(self, text):
-        pass
+    def __init__(self):
+        self.word = word
 
     def extract_words(self):
+        punctuation = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
+        for line in self.word:
+            line = line.lower()
+            line  = line.translate(line.maketrans("", "", string.punctuation))
+            words = line.split(" ")
+            self.word.append(words)
+        print(words)
+        
         """
         This should get all words from the text. This method
         is responsible for lowercasing all words and stripping
@@ -75,19 +92,19 @@ if __name__ == "__main__":
     import sys
     from pathlib import Path
 
-    parser = argparse.ArgumentParser(
-        description='Get the word frequency in a text file.')
-    parser.add_argument('file', help='file to read')
-    args = parser.parse_args()
+    # parser = argparse.ArgumentParser(
+    #     description='Get the word frequency in a text file.')
+    # parser.add_argument('file', help='file to read')
+    # args = parser.parse_args()
 
-    file = Path(args.file)
-    if file.is_file():
-        reader = FileReader(file)
-        word_list = WordList(reader.read_contents())
-        word_list.extract_words()
-        word_list.remove_stop_words()
-        printer = FreqPrinter(word_list.get_freqs())
-        printer.print_freqs()
-    else:
-        print(f"{file} does not exist!")
-        sys.exit(1)
+    # file = Path(args.file)
+    # if file.is_file():
+    #     reader = FileReader(file)
+    #     word_list = WordList(reader.read_contents())
+    #     word_list.extract_words()
+    #     word_list.remove_stop_words()
+    #     printer = FreqPrinter(word_list.get_freqs())
+    #     printer.print_freqs()
+    # else:
+    #     print(f"{file} does not exist!")
+    #     sys.exit(1)
