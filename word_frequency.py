@@ -5,39 +5,42 @@ STOP_WORDS = [
 ]
 
 import string 
-punctuation = string.punctuation 
 import random
-random.random 
+print("testing")
 
 class FileReader:
-    def __init__(self):
-       self.words = []
-       self.read_contents()
+    def __init__(self, filename):
+       self.filename = filename
+    print("testinggg")
 
-    def read_contents(self, lines):
-        file = open("seneca_falls.txt")
-        lines = file.read()
-        file.close
-        print(self.read_contents)
-        return self.read_contents
+    def read_contents(self):
+        file_name = open("seneca_falls.txt")
+        read_contents = (file_name.read)
+        print(read_contents)
+        # lines = file.read()
+        # file.close
+        # print(self.read_contents)
+        # return self.read_contents
         """
         This should read all the contents of the file
         and return them as one string.
         """
-        raise NotImplementedError("FileReader.read_contents")
+        # raise NotImplementedError("FileReader.read_contents")
         
 class WordList:
     def __init__(self):
-        self.word = word
+        pass
+    #     self.word = word
+    #     self.extract_words()
 
-    def extract_words(self):
-        punctuation = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
-        for line in self.word:
-            line = line.lower()
-            line  = line.translate(line.maketrans("", "", string.punctuation))
-            words = line.split(" ")
-            self.word.append(words)
-        print(words)
+    # def extract_words(self):
+    #     punctuation = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
+    #     for line in self.word:
+    #         line = line.lower()
+    #         line  = line.translate(line.maketrans("", "", string.punctuation))
+    #         words = line.split(" ")
+    #         self.word.append(words)
+    #     print(words)
         
         """
         This should get all words from the text. This method
